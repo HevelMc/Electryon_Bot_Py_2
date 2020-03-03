@@ -11,7 +11,7 @@ PREFIX = os.getenv('BOT_PREFIX')
 
 client = commands.Bot(command_prefix=f"{PREFIX}")
 
-startup_extensions = ["blague", "afk", "divers", "events", "musique", "help"]
+startup_extensions = ["blague", "afk", "divers", "events", "musique", "help", "news"]
 
 client.remove_command('help')
 
