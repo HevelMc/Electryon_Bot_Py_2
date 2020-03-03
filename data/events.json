@@ -1,0 +1,24 @@
+{
+    "0" : {
+        "title" : "exemple title",
+        "description" : "exemple description",
+        "date" : "24/11/2019",
+        "heure" : "00:00",
+        "max_players" : "6",
+        "fin_inscription" : "23/11/2019",
+        "color" : "ffffff",
+        "url_form" : "https://electryon.typeform.com/to/iZYyGu",
+        "url_image" : "https://i.pinimg.com/originals/2c/bf/79/2cbf7925ba0adc755226f5e03c9b3701.png"
+    },
+    "1" : {
+        "title" : "The Towers - PvP Event",
+        "description" : "Dans The Towers votre but sera de vous introduire dans le camp adverse et d'aller marquer des points en vous jetant dans la zone située au coeur de la base ennemie. La première équipe à totaliser 10 points remporte la partie.",
+        "date" : "14/12/2019",
+        "heure" : "15:00",
+        "max_players" : "10",
+        "fin_inscription" : "13/12/2019",
+        "color" : "f5b642",
+        "url_form" : "https://electryon.typeform.com/to/AOo69L",
+        "url_image" : "https://hebergeur-minecraft.com/wp-content/uploads/2019/01/map03-e1548265865812-1024x512.jpg"
+    }
+}
