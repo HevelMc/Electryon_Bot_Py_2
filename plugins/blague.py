@@ -69,8 +69,12 @@ class Blague(commands.Cog):
             message = reaction.message
             if "Blague " in str(message.embeds[0].footer):
                 await self.run_blague(message, user, "joke")
+            if "Reddit: " in str(message.embeds[0].footer):
+                await Random(self.client).meme_img(reaction.message)
             if "VDM " in str(message.embeds[0].footer):
                 await self.run_blague(message, user, "vdm")
+            if "FoutuCode " in str(message.embeds[0].footer):
+                await Random(self.client).stupidcode(reaction.message)
             if f"{PREFIX}fox" in str(message.embeds[0].footer):
                 await Random(self.client).animals(name="fox", message=message)
             if f"{PREFIX}cat" in str(message.embeds[0].footer):

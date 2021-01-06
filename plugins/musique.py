@@ -292,8 +292,8 @@ class Music(commands.Cog):
     async def cog_command_error(self, ctx: commands.Context, error: commands.CommandError):
         await ctx.send('Une erreur est survenue: {}'.format(str(error)))
 
-    @commands.command(name='join', invoke_without_subcommand=True, help="Rejoint un salon vocal.")
-    async def _join(self, ctx: commands.Context):
+    @commands.command(invoke_without_subcommand=True, help="Rejoint un salon vocal.")
+    async def join(self, ctx: commands.Context):
 
         destination = ctx.author.voice.channel
         if ctx.voice_state.voice:
@@ -447,7 +447,7 @@ class Music(commands.Cog):
     async def _play(self, ctx: commands.Context, *, search: str):
 
         if not ctx.voice_state.voice:
-            await ctx.invoke(self._join)
+            await ctx.invoke(self.join)
 
         async with ctx.typing():
             try:
@@ -460,7 +460,7 @@ class Music(commands.Cog):
                 await ctx.voice_state.songs.put(song)
                 await ctx.send('{} placé dans la file d\'attente.'.format(str(source)))
 
-    @_join.before_invoke
+    @join.before_invoke
     @_play.before_invoke
     async def ensure_voice_state(self, ctx: commands.Context):
         if not ctx.author.voice or not ctx.author.voice.channel:

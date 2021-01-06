@@ -11,7 +11,7 @@ PREFIX = os.getenv('BOT_PREFIX')
 
 client = commands.Bot(command_prefix=f"{PREFIX}")
 
-startup_extensions = ["blague", "afk", "divers", "events", "musique", "help", "news"]
+startup_extensions = ["blague", "afk", "divers", "events", "musique", "help", "news", "meteo", "games", "toptime"]
 
 client.remove_command('help')
 
@@ -22,7 +22,7 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
     print('------')
-    client.change_presence(activity=discord.Activity(game=discord.Game(name=':joy: Testing status', type=4)))
+    await client.change_presence(activity=discord.CustomActivity("electryon-mc.fr"))
 
 
 @client.command(help="Affiche ou définit le préfixe de commande du bot.")
@@ -66,7 +66,7 @@ async def unload(extension_name: str):
 @client.event
 async def on_member_join(member):
     embed = discord.Embed(title="▶️ Hey ! Un nouveau membre vient de rejoindre le Discord ! 👏",
-                          description=f"**Bienvenue sur Electryon <@{member.id}>.** \n\nN'hésite pas à visiter le salon <#511660954690256899> pour te renseigner sur le serveur et obtient le grade Membre en acceptant le <#447791775164268554>.", color=0x00ff40)
+                          description=f"**Bienvenue sur Electryon {member.mention}** \n\nN'hésite pas à visiter le salon <#511660954690256899> pour te renseigner sur le serveur et obtient le grade Membre en acceptant le <#447791775164268554>.", color=0x00ff40)
     embed.set_footer(text="Electryon - Serveur Discord Communautaire",
                      icon_url="https://cdn.discordapp.com/attachments/440073352581873676/621370927858319360/3.png")
     channel = client.get_channel(444523954757959680)
@@ -88,8 +88,8 @@ if __name__ == "__main__":
             client.load_extension("plugins." + extension)
         except Exception as e:
             exc = f'{type(e).__name__}: {e}'
-            print(
-                f'Error: Echec du chargement de l\'extension {extension}\n{exc}')
+            print(f'Error: Echec du chargement de l\'extension = {extension}\n{exc}')
+            print(e.print_stack())
 
 @client.event
 async def on_command_error(ctx, error):
